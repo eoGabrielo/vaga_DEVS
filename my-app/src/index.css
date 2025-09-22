@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Paleta de cores customizada */
+:root {
+  --color-bg-1: #011526;
+  --color-bg-2: #012E40;
+  --color-bg-3: #025959;
+  --color-bg-4: #02735E;
+  --color-bg-5: #038C65;
+}
+
+.bg-main-1 { background-color: var(--color-bg-1); }
+.bg-main-2 { background-color: var(--color-bg-2); }
+.bg-main-3 { background-color: var(--color-bg-3); }
+.bg-main-4 { background-color: var(--color-bg-4); }
+.bg-main-5 { background-color: var(--color-bg-5); }
+.text-main-1 { color: var(--color-bg-1); }
+.text-main-2 { color: var(--color-bg-2); }
+.text-main-3 { color: var(--color-bg-3); }
+.text-main-4 { color: var(--color-bg-4); }
+.text-main-5 { color: var(--color-bg-5); }
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--color-bg-1);
+  color: white;
+}
+
