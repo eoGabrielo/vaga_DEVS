@@ -47,7 +47,7 @@ function App() {
       <main className="max-w-2xl mx-auto mt-8 px-2">
         {auth.token ? (
           <>
-            <JobForm onAddJob={() => {}} />
+            <JobForm onAddJob={() => { }} />
             <Dashboard />
           </>
         ) : page === 'login' ? (

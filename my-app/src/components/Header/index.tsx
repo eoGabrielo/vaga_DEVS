@@ -27,6 +27,10 @@ export default function Header({ isLoggedIn = false, onLogout, onNavigate }: Hea
           {/* Menu desktop */}
           <nav className="hidden md:flex gap-8 text-lg font-medium items-center">
             <a
+              href="/home"
+              className="hover:text-main-5 transition-colors"
+            >Inicio</a>
+            <a
               href="#dashboard"
               className="hover:text-main-5 transition-colors"
               onClick={e => { e.preventDefault(); onNavigate && onNavigate('dashboard'); }}
