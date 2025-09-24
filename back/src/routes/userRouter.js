@@ -55,11 +55,11 @@ router.post("/login", async (req, res) => {
             return res.status(400).json({ message: "Senha inválida" });
         }
 
-        //Cria token
+        //Cria token com payload do user
         const token = jwt.sign({id: user._id, email: user.email}, process.env.CHAVE_SECRETA, {expiresIn: "1h"})
 
 
-    return res.status(200).json({ message: "Login realizado com sucesso", token, userId: user._id });
+    return res.status(200).json({ message: "Login realizado com sucesso", token, userId: user._id });//Retorna o payload no "res"
     } catch (error) {
         return res.status(500).json({ message: "Erro no servidor" });
     }

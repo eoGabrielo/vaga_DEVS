@@ -6,26 +6,26 @@ const connectDB = require('./data/db');
 const userRouter = require('./routes/userRouter');
 const postRouter = require('./routes/postRouter')
 
-//CORS primeiro
+//CORS
 app.use(cors({
   origin: "http://localhost:5173",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
 
-// 2️⃣ Body parser
+//Ler json
 app.use(express.json());
 
-// 3️⃣ Rotas
+//Rotas
 app.use("/user", userRouter);
 app.use("/post", postRouter)
 
-// Rota teste
-app.get('/', (req, res) => {
-    res.send('Servidor rodando com Express!');
-});
+// Rota de teste
+//app.get('/', (req, res) => {
+//    res.send('Servidor rodando com Express!');
+//});
 
-// Conectar DB
+// Conectar ao mongoDB
 connectDB()
 
 // Rodar servidor

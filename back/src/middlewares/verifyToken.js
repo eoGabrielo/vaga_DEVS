@@ -1,20 +1,20 @@
-const jwt = require("jsonwebtoken"); // importa jsonwebtoken
+const jwt = require("jsonwebtoken"); 
 
-// Middleware para verificar token JWT
+
 function verifyToken(req, res, next) {
-    const authHeader = req.headers["authorization"]; // pega o header Authorization
-    const token = authHeader && authHeader.split(" ")[1]; // "Bearer <token>"
+    const authHeader = req.headers["authorization"]; 
+    const token = authHeader && authHeader.split(" ")[1]; 
 
     if (!token) {
         return res.status(401).json({ message: "Acesso negado. Token não fornecido." });
     }
 
     try {
-        const secret = process.env.CHAVE_SECRETA; // chave secreta
-        const decoded = jwt.verify(token, secret); // verifica token
+        const secret = process.env.CHAVE_SECRETA;
+        const decoded = jwt.verify(token, secret); //Verifica o token
 
-        req.userId = decoded.id; // adiciona ID do usuário no request
-        next(); // continua para a próxima função da rota
+        req.userId = decoded.id; //adiciona ID do usuário no request
+        next();
     } catch (err) {
         return res.status(403).json({ message: "Token inválido ou expirado." });
     }

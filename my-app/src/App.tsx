@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [auth, setAuth] = useState<{ token: string | null }>({ token: null });
-  const [page, setPage] = useState<'login' | 'register' | 'dashboard'>('login');
+  const [page, setPage] = useState<'login' | 'register' | 'dashboard' | 'home'>('login');
 
   // Checa token salvo ao iniciar
   useEffect(() => {

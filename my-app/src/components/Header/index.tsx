@@ -1,12 +1,12 @@
 // src/components/Header.jsx
 
+
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-
 interface HeaderProps {
   isLoggedIn?: boolean;
   onLogout?: () => void;
-  onNavigate?: (page: 'login' | 'register' | 'dashboard') => void;
+  onNavigate?: (page: 'login' | 'register' | 'dashboard' | 'home') => void;
 }
 
 export default function Header({ isLoggedIn = false, onLogout, onNavigate }: HeaderProps) {
@@ -27,9 +27,10 @@ export default function Header({ isLoggedIn = false, onLogout, onNavigate }: Hea
           {/* Menu desktop */}
           <nav className="hidden md:flex gap-8 text-lg font-medium items-center">
             <a
-              href="/home"
+              href="#home"
               className="hover:text-main-5 transition-colors"
-            >Inicio</a>
+              onClick={e => { e.preventDefault(); onNavigate && onNavigate('home'); }}
+            >Início</a>
             <a
               href="#dashboard"
               className="hover:text-main-5 transition-colors"

@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const Post = require("../models/postSchema"); // modelo de vaga
-const User = require("../models/userSchema"); // modelo de usuário
+const Post = require("../models/postSchema"); 
+const User = require("../models/userSchema");
 const verifyToken = require("../middlewares/verifyToken")
 
 
 router.post("/criar", verifyToken, async (req, res) => {
     try {
-        const { titulo, empresa, descricao, stacks } = req.body;
+        const { titulo, empresa, descricao, stacks, emailContato, whatsappContato } = req.body;
 
         if (!titulo || !empresa || !descricao) {
             return res.status(400).json({ message: "Preencha todos os campos!" });
@@ -18,7 +18,9 @@ router.post("/criar", verifyToken, async (req, res) => {
             empresa: empresa,
             descricao: descricao,
             stacks: Array.isArray(stacks) ? stacks : [],
-            createdBy: req.userId // ID do usuário vindo do JWT
+            emailContato: emailContato || '...',
+            whatsappContato: whatsappContato || '...',
+            createdBy: req.userId // ID do usuário vindo do "req" da func (verifyToken)
         });
 
         const savedPost = await newPost.save();
